@@ -32,25 +32,7 @@
             50% { transform: scale(1.25); }
             100% { transform: scale(1); }
         }
-        /* Floating hearts */
-.heart-float {
-  position: fixed;
-  bottom: -50px;
-  font-size: 24px;
-  animation: float 6s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
-}
+        
         /* Heart rain */
 .heart-rain {
   position: fixed;
@@ -146,12 +128,8 @@
     <img src="images/love4.jpg" style="max-width:90%; height:auto; margin-top:20px; border-radius:20px;">
 
 </div>
-   <!-- Floating Hearts -->
-<div class="heart-float" style="left:10%; color:pink;">💗</div>
-<div class="heart-float" style="left:25%; color:green;">💚</div>
-<div class="heart-float" style="left:40%; color:pink;">💗</div>
-<div class="heart-float" style="left:60%; color:green;">💚</div>
-<div class="heart-float" style="left:80%; color:pink;">💗</div>
+   
+
     <script>
 let heartInterval;
 const isMobile = window.innerWidth < 768;
@@ -180,6 +158,7 @@ heartInterval = setInterval(
 
   </body>
 </html>
+
 
 
 
