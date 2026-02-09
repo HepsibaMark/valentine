@@ -53,7 +53,8 @@
 
     </style>
 </head>
-<body>
+<body id="pageContent" style="display:none;">
+
 
     <!-- 96 Theme Music -->
     <p style="font-style:italic; color:#555;">
@@ -155,9 +156,49 @@ heartInterval = setInterval(
   isMobile ? 900 : 300
 );
 </script>
+    <script>
+const questions = [
+  { q: "1️⃣ Enaku nee vacha name?", a: "mini" },
+  { q: "2️⃣ Namma pesina 1st date (dd/mm/yyyy)?", a: "16/02/2025" },
+  { q: "3️⃣ Naa propose pannina date (dd/mm/yyyy)?", a: "07/07/2025" },
+  { q: "4️⃣ Enaku pudicha rice?", a: "chicken rice" },
+  { q: "5️⃣ Namma 1st meet panna place? (c_____i)", a: "chennai" },
+  { q: "6️⃣ Ennoda mobile number oda 1st 4 numbers?", a: "9361" },
+  { q: "7️⃣ Do you be my valentine? ❤️", a: "yes" }
+];
+
+function startQuiz() {
+  for (let i = 0; i < questions.length; i++) {
+    let ans = prompt(questions[i].q);
+
+    if (!ans || ans.toLowerCase().trim() !== questions[i].a) {
+      let retry = confirm("❌ Wrong answer 😢\nRetry pannalama? 💗");
+
+      if (retry) {
+        startQuiz();
+      } else {
+        document.body.innerHTML = `
+          <h2 style="text-align:center;margin-top:100px;color:#b11226;">
+            🔒 Page Locked ❤️<br><br>
+            Correct answers mattum thaan key 😌
+          </h2>
+        `;
+      }
+      return;
+    }
+  }
+
+  // All answers correct
+  document.getElementById("pageContent").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", startQuiz);
+</script>
+
 
   </body>
 </html>
+
 
 
 
