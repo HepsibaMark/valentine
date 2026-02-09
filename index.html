@@ -51,6 +51,23 @@
     opacity: 0;
   }
 }
+        /* Heart rain */
+.heart-rain {
+  position: fixed;
+  top: -10px;
+  font-size: 22px;
+  animation: fall linear forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
 
     </style>
 </head>
@@ -135,6 +152,32 @@
 <div class="heart-float" style="left:40%; color:pink;">💗</div>
 <div class="heart-float" style="left:60%; color:green;">💚</div>
 <div class="heart-float" style="left:80%; color:pink;">💗</div>
+    <script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart-rain");
+
+  // random heart color
+  heart.innerText = Math.random() > 0.5 ? "💗" : "💚";
+
+  // random position
+  heart.style.left = Math.random() * 100 + "vw";
+
+  // random speed
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+
+  // remove heart after fall
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+// create hearts continuously (rain effect)
+setInterval(createHeart, 300);
+</script>
+
 
 
 
@@ -142,6 +185,7 @@
 
 </body>
 </html>
+
 
 
 
